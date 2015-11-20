@@ -1,5 +1,3 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
@@ -26,9 +24,9 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  _.each(this._storage[index], function(tuple) {
+  _.each(this._storage[index], function(tuple, loc, storage) {
     if (tuple[0] === k) {
-      delete tuple[1];  
+      storage.splice(loc, 1);  
     }
   });
 };
