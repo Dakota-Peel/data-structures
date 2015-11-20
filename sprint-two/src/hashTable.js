@@ -26,7 +26,7 @@ HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   _.each(this._storage[index], function(tuple, loc, storage) {
     if (tuple[0] === k) {
-      storage.splice(loc, 1);  
+      storage.splice(loc, 1);
     }
   });
 };

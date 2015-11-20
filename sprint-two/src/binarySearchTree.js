@@ -1,4 +1,4 @@
-var BinarySearchTree = function(value) {
+var BinarySearchTree = function (value) {
   this.value = value;
 };
 
@@ -18,7 +18,7 @@ BinarySearchTree.prototype.insert = function (value) {
   } 
 };
 
-BinarySearchTree.prototype.contains = function(value) {
+BinarySearchTree.prototype.contains = function (value) {
   var result = false;
   if (this.value === value) {
     result = true;
@@ -30,7 +30,7 @@ BinarySearchTree.prototype.contains = function(value) {
   return result;
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(cb) {
+BinarySearchTree.prototype.depthFirstLog = function (cb) {
   if (this.value) {
     cb(this.value);
   }
