@@ -10,7 +10,7 @@ describe('doubleLinkedList', function() {
     expect(doubleLinkedList).to.have.property("tail");
   });
 
-  it('should have methods named "addToTail", "removeHead", "contains", "addHead", and "removeTail"', function() {
+  it('should have methods named "addTail", "removeHead", "contains", "addHead", and "removeTail"', function() {
     expect(doubleLinkedList.addTail).to.be.a("function");
     expect(doubleLinkedList.removeHead).to.be.a("function");
     expect(doubleLinkedList.contains).to.be.a("function");
@@ -19,39 +19,46 @@ describe('doubleLinkedList', function() {
   });
 
   it('should designate a new tail when new nodes are added', function(){
-    doubleLinkedList.addToTail(4);
+    doubleLinkedList.addTail(4);
     expect(doubleLinkedList.tail.value).to.equal(4);
-    doubleLinkedList.addToTail(5);
+    doubleLinkedList.addTail(5);
     expect(doubleLinkedList.tail.value).to.equal(5);
   });
 
   it('should remove the head from the list when removeHead is called', function(){
-    doubleLinkedList.addToTail(4);
-    doubleLinkedList.addToTail(5);
+    doubleLinkedList.addTail(4);
+    doubleLinkedList.addTail(5);
     expect(doubleLinkedList.head.value).to.equal(4);
     doubleLinkedList.removeHead();
     expect(doubleLinkedList.head.value).to.equal(5);
   });
 
   it("should return the value of the former head when removeHead is called", function(){
-    doubleLinkedList.addToTail(4);
+    doubleLinkedList.addTail(4);
     expect(doubleLinkedList.removeHead()).to.equal(4);
   });
 
   it("should contain a value that was added", function(){
-    doubleLinkedList.addToTail(4);
-    doubleLinkedList.addToTail(5);
+    doubleLinkedList.addTail(4);
+    doubleLinkedList.addTail(5);
     expect(doubleLinkedList.contains(4)).to.equal(true);
     expect(doubleLinkedList.contains(5)).to.equal(true);
     expect(doubleLinkedList.contains(6)).to.equal(false);
   });
 
   it('should not contain a value that was removed', function(){
-    doubleLinkedList.addToTail(4);  
-    doubleLinkedList.addToTail(5);
+    doubleLinkedList.addTail(4);  
+    doubleLinkedList.addTail(5);
     doubleLinkedList.removeHead();
     expect(doubleLinkedList.contains(4)).to.equal(false);
   });
 
+  it('should contain previous nodes', function(){
+    doubleLinkedList.addTail(3);
+    doubleLinkedList.addTail(4);
+    doubleLinkedList.addTail(5);
+    expect(doubleLinkedList.head.previous).to.equal(null);
+    expect(doubleLinkedList.tail.previous.value).to.equal(4);
+  });
   // add more tests here to test the functionality of doubleLinkedList
 });

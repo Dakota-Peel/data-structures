@@ -1,8 +1,8 @@
-alert('hi')
+
 var DoubLL = function () {
   this.head = null;
   this.tail = null;
-  this.value = null;
+  
 };
 
 DoubLL.prototype.addHead = function (val) {
@@ -10,20 +10,44 @@ DoubLL.prototype.addHead = function (val) {
 };
 
 DoubLL.prototype.removeHead = function() {
-  // body...
+  var temp = this.head.value;
+  this.head = this.head.next;
+  return temp;
 };
 
 DoubLL.prototype.addTail = function (val) {
   if (this.head === null) {
-    this.head = val;
+    this.head = Node(val);
+    this.tail = this.head;
+    this.tail.previous = null;
+  }else{
+    var temp = this.tail;
+    this.tail.next = Node(val);
+    this.tail.next.previous = temp;
+    this.tail = this.tail.next;
   }
-  this.tail=val;
 };
 
 DoubLL.prototype.removeTail = function () {
 
 };
 
-DoubLL.prototype.contains = function (val) {
-
+DoubLL.prototype.contains = function (target) {
+  var result = false;
+  for(var key = this.head; key; key = key.next){
+    if(target=== key.value){
+      result = true;
+    }
+  }
+return result;
 };
+
+var Node = function(value){
+  var node = {}
+
+  node.value = value;
+  node.next = null;
+  node.previous = null;
+
+  return node;
+}
