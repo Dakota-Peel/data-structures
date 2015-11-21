@@ -60,5 +60,22 @@ describe('doubleLinkedList', function() {
     expect(doubleLinkedList.head.previous).to.equal(null);
     expect(doubleLinkedList.tail.previous.value).to.equal(4);
   });
+
+    it('should remove head', function(){
+    doubleLinkedList.addTail(3);
+    doubleLinkedList.addTail(4);
+    doubleLinkedList.addTail(5);
+    doubleLinkedList.removeHead();
+    expect(doubleLinkedList.head.previous).to.equal(4);
+    expect(doubleLinkedList.head.previous.value).to.equal(null);
+  });
+
+      it('should remove tail', function(){
+    doubleLinkedList.addTail(3);
+    doubleLinkedList.addTail(4);
+    doubleLinkedList.addTail(5);
+    expect(doubleLinkedList.removeTail()).to.equal(5);
+    expect(doubleLinkedList.tail.value).to.equal(4);
+  });
   // add more tests here to test the functionality of doubleLinkedList
 });
