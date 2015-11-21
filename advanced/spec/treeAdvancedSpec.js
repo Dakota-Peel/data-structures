@@ -63,7 +63,18 @@ describe('treeAdvanced', function() {
     expect(tree.children[1].removeFromParent()).to.equal(4);
     expect(tree.children[1].value).to.equal(6);
     // expect(tree.parent).to.equal(null);
-  })
+  });
 
+  it('.traverse() method calls a callback function on the executing node and all its children', function() {
+    tree.addChild(2);
+    tree.addChild(4);
+    tree.addChild(6);
+    tree.children[0].addChild(5);
+    tree.children[1].addChild(10);
+    tree.children[2].addChild(15);
+    var test = [];
+    tree.traverse(function(val) {test.push(val)});
+    expect(test.toString()).to.equal([2, 5, 4, 10, 6, 15].toString());
+  });
 
 });
