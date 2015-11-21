@@ -61,16 +61,16 @@ describe('doubleLinkedList', function() {
     expect(doubleLinkedList.tail.previous.value).to.equal(4);
   });
 
-    it('should remove head', function(){
+  it('should make the head\'s previous equal to null', function(){
     doubleLinkedList.addTail(3);
     doubleLinkedList.addTail(4);
     doubleLinkedList.addTail(5);
     doubleLinkedList.removeHead();
-    expect(doubleLinkedList.head.previous).to.equal(4);
-    expect(doubleLinkedList.head.previous.value).to.equal(null);
+    expect(doubleLinkedList.head.value).to.equal(4);
+    expect(doubleLinkedList.head.previous).to.equal(null);
   });
 
-      it('should remove tail', function(){
+  it('should remove tail', function(){
     doubleLinkedList.addTail(3);
     doubleLinkedList.addTail(4);
     doubleLinkedList.addTail(5);
