@@ -77,4 +77,4 @@ describe('treeAdvanced', function() {
     expect(test.toString()).to.equal([2, 5, 4, 10, 6, 15].toString());
   });
 
-});
+});k
